@@ -48,6 +48,7 @@ namespace CodeBundler
 
             var languageOption = new Option<string[]>("--language");
             languageOption.Description = "List of programming languages or 'all'";
+            languageOption.Required = true;
 
             var outputOption = new Option<FileInfo>("--output");
             outputOption.Description = "Output file path";
@@ -184,8 +185,8 @@ namespace CodeBundler
             {
                 File.WriteAllText(rspFileName, string.Join(" ", rspCommand));
                 Console.WriteLine($"\nSUCCESS: Response file created at '{rspFileName}'");
-                Console.WriteLine($"To use it, run your app like this:  dotnet run -- @{rspFileName}");
-                Console.WriteLine("                               or:  MyApp.exe @" + rspFileName);
+                string exeName = AppDomain.CurrentDomain.FriendlyName;
+                Console.WriteLine($"To use it, run your app like this:  {exeName} @{rspFileName}");
             }
             catch (Exception ex)
             {

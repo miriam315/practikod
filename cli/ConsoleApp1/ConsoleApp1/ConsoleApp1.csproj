@@ -8,6 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="new.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="new.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.CommandLine" Version="2.0.7" />
   </ItemGroup>
 
